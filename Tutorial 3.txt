@@ -1,0 +1,42 @@
+Tutorial 3:
+
+#include <stdio.h>
+#include <string.h>
+ 
+char str[100], sub[100];                                   //declare the type and size
+int count = 0, count1 = 0;
+ 
+void main()
+{
+    int i, j, l, l1, l2;                                   //declare the required variables
+ 
+    printf("\nEnter a string : ");                         //get a string from the user
+    scanf("%[^\n]s", str);
+ 
+    l1 = strlen(str);                                      //finding length of the string 
+ 
+    printf("\nEnter a substring : ");                      //get a substring from the user 
+    scanf(" %[^\n]s", sub);
+ 
+    l2 = strlen(sub);                                      //finding length of the substring
+ 
+    for (i = 0; i < l1;)
+    {
+        j = 0;
+        count = 0;
+        while ((str[i] == sub[j]))                         //find if there is a duplicate by comparing 
+        {
+            count++;
+            i++;
+            j++;
+        }
+        if (count == l2)                                   
+        {
+            count1++;                                   
+            count = 0;
+        }
+        else                                               //if no duplicate then increment 
+            i++;
+    }    
+    printf("%s occurs %d times in %s", sub, count1, str);  //print the output
+}
